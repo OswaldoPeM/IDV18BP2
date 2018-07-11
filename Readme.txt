@@ -1,0 +1,1 @@
+archivo readme desde bash
