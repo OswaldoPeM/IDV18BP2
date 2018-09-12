@@ -242,7 +242,37 @@ int main()
 	keep_window_open();
 	return 0;
 }
-
+int main()
+{
+	string numero = "";
+	cout << "Escriba un numero de el uno al cuatro en minusculas y lo vera escrito en su exprecion no enunciada.\n";
+	cin >> numero
+	if (numero == "cero")
+	{
+		cout << "0";
+	}
+	if (numero == "uno")
+	{
+		cout << "1";
+	}
+	if (numero == "dos")
+	{
+		cout << "2";
+	}
+	if (numero == "tres")
+	{
+		cout << "3";
+	}
+	if (numero == "cuatro")
+	{
+		cout << "4";
+	}
+	else
+	{
+			cout << "mil ochomil?";
+	}
+	keep_window_open();
+}
 */
 
 int main()
