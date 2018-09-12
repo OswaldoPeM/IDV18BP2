@@ -76,6 +76,7 @@ int main()
 	miles *= km;
 	cout << "Son " << miles << " kilometros.\n";
 	keep_window_open();
+	return 0;
 }
 
 int main()
@@ -101,6 +102,7 @@ int main()
 		cout << "La divisiòn es: " << division << "\n";
 	}
 	keep_window_open();
+	retun 0;
 }
 
 int main()
@@ -125,8 +127,124 @@ int main()
 		cout << "La divisiòn es: " << division << "\n";
 	}
 	keep_window_open();
+	return 0;
 }
+int main()
+{
+	int val1, val2, val3;
+	cout<<"Ingresar 3 valores enteros.\n"
+	cin>> val1,val2,val3:
+	if (val1 >= val2 >= val3 || val1 == val2 == val3)
+	{
+		cout << val3 << ", " << val2 << ", "<< val1 << "\n";
+	}
+	if (val1 > val2 >= val3)
+	{
+		cout << val2 << ", " << val3 << ", "<< val1 << "\n";
+	}
+	if (val1 >= val2 > val3)
+	{
+		cout << val3 << ", " << val2 << ", "<< val1 << "\n";
+	}
+	if (val1 > val2 > val3)
+	{
+		cout << val3 << ", " << val2 << ", "<< val1 << "\n";
+	}
+	if (val1 < val2 <= val3)
+	{
+		cout << val1 << ", " << val2 << ", "<< val3 << "\n";
+	}
+	if (val1 <= val2 < val3)
+	{
+		cout << val1 << ", " << val2 << ", "<< val3 << "\n";
+	}
+	if (val1 > val2 < val3 && val1 > val3)
+	{
+		cout << val2 << ", " << val3 << ", "<< val1 << "\n";
+	}
+	if (val1 > val2 < val3 && val1 < val3)
+	{
+		cout << val2 << ", " << val1 << ", "<< val3 << "\n";
+	}
+	if (val1 < val2 > val3 && val1 > val3)
+	{
+		cout << val3 << ", " << val1 << ", "<< val2 << "\n";
+	}
+	if (val1 < val2 > val3 && val1 < val3)
+	{
+		cout << val1 << ", " << val3 << ", "<< val2 << "\n";
+	}
+	keep_window_open();
+	return 0;
+}
+int main()
+{
+	string val1, val2, val3;
+	cout<<"Ingresar 3 valores enteros.\n"
+	cin>> val1,val2,val3:
+	if (val1 >= val2 >= val3 || val1 == val2 == val3)
+	{
+		cout << val3 << ", " << val2 << ", "<< val1 << "\n";
+	}
+	if (val1 > val2 >= val3)
+	{
+		cout << val2 << ", " << val3 << ", "<< val1 << "\n";
+	}
+	if (val1 >= val2 > val3)
+	{
+		cout << val3 << ", " << val2 << ", "<< val1 << "\n";
+	}
+	if (val1 > val2 > val3)
+	{
+		cout << val3 << ", " << val2 << ", "<< val1 << "\n";
+	}
+	if (val1 < val2 <= val3)
+	{
+		cout << val1 << ", " << val2 << ", "<< val3 << "\n";
+	}
+	if (val1 <= val2 < val3)
+	{
+		cout << val1 << ", " << val2 << ", "<< val3 << "\n";
+	}
+	if (val1 > val2 < val3 && val1 > val3)
+	{
+		cout << val2 << ", " << val3 << ", "<< val1 << "\n";
+	}
+	if (val1 > val2 < val3 && val1 < val3)
+	{
+		cout << val2 << ", " << val1 << ", "<< val3 << "\n";
+	}
+	if (val1 < val2 > val3 && val1 > val3)
+	{
+		cout << val3 << ", " << val1 << ", "<< val2 << "\n";
+	}
+	if (val1 < val2 > val3 && val1 < val3)
+	{
+		cout << val1 << ", " << val3 << ", "<< val2 << "\n";
+	}
+	keep_window_open();
+	return 0;
+}
+int main()
+{
+	int resultado, val=0;
+	cout << "ingrese numero del que se quiere saber si es par\n";
+	cin >> val;
+	resultado= val/2;
+	if (resultado*2 == val)
+	{
+		cout << val << " es par\n";
+	}
+	if (resultado*2 != val)
+	{
+		cout << val << " no es par\n";
+	}
+	keep_window_open();
+	return 0;
+}
+
 */
+
 int main()
 {
 	cout << "Introduce tu nombre.(al terminar preciona la tecla enter).\n";
