@@ -496,7 +496,7 @@ int main()
 /*
 int main()
 {
-	long int arroz = 1;
+	double arroz = 1;
 	cout << " en un tablero de ajedrez hay 64 cuadros, vamos a rellenar esos cuadros con arroz, el primer cuadro tendra un grano\nel segundo cuadro tendra lo que el primero multiplicado por dos\nel tercero tendra lo que el segundo multiplicado por dos\ny asi susesivamente\nVeamos cuantos granos de arroz tiene cada cuadro. y en que cuadro se cumplen las condiciones.";
 	for (int i = 1; i < 63; i++)
 	{
@@ -513,6 +513,142 @@ int main()
 		{
 			cout << "En el cuadro numero " << i+1 << " tiene al menos  1000000000\n";
 		}
+	}
+	cout<<arroz<<endl;
+
+	cout << "el int aparece hasta el cuadro numero 33\n"
+	keep_window_open();
+	return 0;
+}
+*/
+
+/*
+int main()
+{
+	vector<string> juegoPPT;
+	const string Piedra = "piedra", Papel = "papel", Tijera = "tijera";
+	juegoPPT = { "piedra","papel","tijera","piedra","tijera","piedra","tijera","piedra","papel","tijera","tijera" };
+	char yn = 'q';
+	string jugador = "";
+	for (int i = 0; i != -1; i++)
+	{
+		cout << "\npiedra, papel o tijera?\n";
+		cin >> jugador;
+		if (jugador == Piedra)
+		{
+			if (juegoPPT[i]==Piedra)
+			{
+				cout << "EMPATE!\n";
+			}
+			if (juegoPPT[i] == Papel)
+			{
+				cout << "PERDISTE!!\n";
+			}
+			if (juegoPPT[i] == Tijera)
+			{
+				cout << "GANASTE!!!\n";
+			}
+		}
+		if (jugador == Tijera)
+		{
+			if (juegoPPT[i] == Piedra)
+			{
+				cout << "PERDISTE!!\n";
+			}
+			if (juegoPPT[i] == Papel)
+			{
+				cout << "GANASTE!!!\n";
+			}
+			if (juegoPPT[i] == Tijera)
+			{
+				cout << "EMPATE!\n";
+			}
+		}
+		if (jugador == Papel)
+		{
+			if (juegoPPT[i] == Piedra)
+			{
+				cout << "PERDISTE!!\n";
+			}
+			if (juegoPPT[i] == Papel)
+			{
+				cout << "EMPATE!\n";
+			}
+			if (juegoPPT[i] == Tijera)
+			{
+				cout << "GANASTE!!!\n";
+			}
+		}
+		cout << "quieres, seguir jugando?(y/n)\n";
+		cin >> yn;
+		if (yn == 'n')
+		{
+			i = 1;
+		}
+	}
+	keep_window_open();
+	return 0;
+}
+*/
+
+/*
+int main()
+{
+	vector<int> primo;
+	primo = { 2 };
+	int max=0;
+	cout<< "introdusca el numero maximo para ver numeros primos del 1 al numero maximo\n';
+	cin>>max;
+	for (int i = 3; i < max; i++)
+	{
+		for (int j = 2; j < i; j++)
+		{
+			if (i%j == 0)
+			{
+				break;
+			}
+			if (j == i-1)
+			{
+				primo.push_back(j+1);
+			}
+		}
+	}
+	for (int i = 0; i < primo.size(); i++)
+	{
+		cout << primo[i] << " ";
+	}
+	cout << "\n";
+	keep_window_open();
+	
+}
+*/
+
+/*
+int main() 
+{
+	double a, b, c, x1, x2, raiz, real, imaginario;
+	cout << "vamos a hacer la formula general\n a continuacion introdusa a,b y c para resolver\n";
+	cin >> a >> b >> c;
+	raiz = b * b - 4 * a*c;
+
+	if (raiz > 0)
+	{
+		x1 = (-b + sqrt(raiz)) / (2 * a);
+		x2 = (-b - sqrt(raiz)) / (2 * a);
+		cout << "Numeros reales.\nx1 = " << x1 << "\nx2 = " << x2<<"\n";
+	}
+
+	if (raiz == 0)
+	{
+		x1 = (-b + sqrt(raiz)) / (2 * a);
+		cout << "x1 = x2 =" << x1 << "/n";
+	}
+
+	else 
+	{
+		real = -b / (2 * a);
+		imaginario = sqrt(-raiz) / (2 * a);
+		cout << "Los resultados son numeros imaginarios.x1 = " << real << "+" << imaginario << "i\nx2 = " << real << "-" << imaginario << "i" << "\n";
 	}
 	keep_window_open();
 	return 0;
