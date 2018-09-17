@@ -515,6 +515,8 @@ int main()
 		}
 	}
 	cout<<arroz<<endl;
+
+	cout << "el int aparece hasta el cuadro numero 33\n"
 	keep_window_open();
 	return 0;
 }
@@ -594,8 +596,10 @@ int main()
 {
 	vector<int> primo;
 	primo = { 2 };
-
-	for (int i = 3; i < 100; i++)
+	int max=0;
+	cout<< "introdusca el numero maximo para ver numeros primos del 1 al numero maximo\n';
+	cin>>max;
+	for (int i = 3; i < max; i++)
 	{
 		for (int j = 2; j < i; j++)
 		{
@@ -619,3 +623,34 @@ int main()
 }
 */
 
+/*
+int main() 
+{
+	double a, b, c, x1, x2, raiz, real, imaginario;
+	cout << "vamos a hacer la formula general\n a continuacion introdusa a,b y c para resolver\n";
+	cin >> a >> b >> c;
+	raiz = b * b - 4 * a*c;
+
+	if (raiz > 0)
+	{
+		x1 = (-b + sqrt(raiz)) / (2 * a);
+		x2 = (-b - sqrt(raiz)) / (2 * a);
+		cout << "Numeros reales.\nx1 = " << x1 << "\nx2 = " << x2<<"\n";
+	}
+
+	if (raiz == 0)
+	{
+		x1 = (-b + sqrt(raiz)) / (2 * a);
+		cout << "x1 = x2 =" << x1 << "/n";
+	}
+
+	else 
+	{
+		real = -b / (2 * a);
+		imaginario = sqrt(-raiz) / (2 * a);
+		cout << "Los resultados son numeros imaginarios.x1 = " << real << "+" << imaginario << "i\nx2 = " << real << "-" << imaginario << "i" << "\n";
+	}
+	keep_window_open();
+	return 0;
+}
+*/
