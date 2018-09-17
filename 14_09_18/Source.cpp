@@ -496,7 +496,7 @@ int main()
 /*
 int main()
 {
-	long int arroz = 1;
+	double arroz = 1;
 	cout << " en un tablero de ajedrez hay 64 cuadros, vamos a rellenar esos cuadros con arroz, el primer cuadro tendra un grano\nel segundo cuadro tendra lo que el primero multiplicado por dos\nel tercero tendra lo que el segundo multiplicado por dos\ny asi susesivamente\nVeamos cuantos granos de arroz tiene cada cuadro. y en que cuadro se cumplen las condiciones.";
 	for (int i = 1; i < 63; i++)
 	{
@@ -514,7 +514,85 @@ int main()
 			cout << "En el cuadro numero " << i+1 << " tiene al menos  1000000000\n";
 		}
 	}
+	cout<<arroz<<endl;
 	keep_window_open();
 	return 0;
 }
 */
+
+/*
+int main()
+{
+	vector<string> juegoPPT;
+	const string Piedra = "piedra", Papel = "papel", Tijera = "tijera";
+	juegoPPT = { "piedra","papel","tijera","piedra","tijera","piedra","tijera","piedra","papel","tijera","tijera" };
+	char yn = 'q';
+	string jugador = "";
+	for (int i = 0; i != -1; i++)
+	{
+		cout << "\npiedra, papel o tijera?\n";
+		cin >> jugador;
+		if (jugador == Piedra)
+		{
+			if (juegoPPT[i]==Piedra)
+			{
+				cout << "EMPATE!\n";
+			}
+			if (juegoPPT[i] == Papel)
+			{
+				cout << "PERDISTE!!\n";
+			}
+			if (juegoPPT[i] == Tijera)
+			{
+				cout << "GANASTE!!!\n";
+			}
+		}
+		if (jugador == Tijera)
+		{
+			if (juegoPPT[i] == Piedra)
+			{
+				cout << "PERDISTE!!\n";
+			}
+			if (juegoPPT[i] == Papel)
+			{
+				cout << "GANASTE!!!\n";
+			}
+			if (juegoPPT[i] == Tijera)
+			{
+				cout << "EMPATE!\n";
+			}
+		}
+		if (jugador == Papel)
+		{
+			if (juegoPPT[i] == Piedra)
+			{
+				cout << "PERDISTE!!\n";
+			}
+			if (juegoPPT[i] == Papel)
+			{
+				cout << "EMPATE!\n";
+			}
+			if (juegoPPT[i] == Tijera)
+			{
+				cout << "GANASTE!!!\n";
+			}
+		}
+		cout << "quieres, seguir jugando?(y/n)\n";
+		cin >> yn;
+		if (yn == 'n')
+		{
+			i = 1;
+		}
+	}
+	keep_window_open();
+	return 0;
+}
+*/
+
+
+int main()
+{
+
+}
+
+
