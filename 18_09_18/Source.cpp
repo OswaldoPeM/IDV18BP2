@@ -189,7 +189,6 @@ int main()
 }
 */
 
-
 /*
 double ctok(double c) // converts Celsius to Kelvin
 {
@@ -293,16 +292,31 @@ int main()
 }
 */
 
+/*
 int main()
 {
 	vector<int> lista;
 	int max = 0, sum=0;
 	cout << "Introduce cuantos valores vas a sumar contando desde el primero: \n";
 	cin >> max;
-	cout << "introduce los numeros, y cuando quieras parar presiona (ctrl+z) enter.";
-	for (int i; cin >> i;)
+	cout << "introduce los numeros, y cuando quieras parar presiona (ctrl+z) enter.\n";
+	try
 	{
-		lista.push_back(i);
+		for (int i; cin >> i;)
+		{
+			lista.push_back(i);
+			if (i != int) throw e;
+		}			   
+	}
+	catch (const e)
+	{
+		cout << "Ingresa solo numeros.\n";
+	}
+	if (lista.size() < max)
+	{
+		cout << "no se ingresaron los numeros necesarios.\n";
+		return 0;
+		
 	}
 
 	for (int i=0; i < max;i++)
@@ -310,9 +324,67 @@ int main()
 		sum += lista[i];
 	}
 
-	cout << sum << endl;
+	cout << "El total es " << sum << endl;
 	keep_window_open();
 	
 	return 0;
 }
+*/
+
+/*
+int main()
+{
+	int x = 1, y = 0, max=0,step;
+	cin >> max;
+	try
+	{
+		if (max < 1)
+		{
+			throw 0;
+		}
+		if (max==1)
+		{
+			throw 1;
+		}
+		if (max == 2)
+		{
+			throw 2;
+		}
+		cout << "0";
+		for (int i = 2 ; i < max ; i++)
+		{
+			y = x + y;
+			x = y - x;
+			if (y<1)
+			{
+				step = i;
+				throw 3;
+			}
+			cout << ", " << y;
+		}
+		cout << endl;
+	}
+	catch (int e)
+	{
+		if (e == 0)
+		{
+			cout << "Numero de pasos debe ser un numero positivo mayora a 0.\n";
+		}
+		if (e==1)
+		{
+			cout << "0 \n";
+		}
+		if (e == 2)
+		{
+			cout << "0, 1\n";
+		}
+		if (e == 3)
+		{
+			cout << "\nEl numero maximo para un int ha sido revasado, el maximo numero de pasos usando un int fue de: " << step << endl;
+		}
+	}
+	keep_window_open();
+	return 0;
+}
+*/
 
