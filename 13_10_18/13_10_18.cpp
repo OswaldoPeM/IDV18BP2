@@ -25,6 +25,7 @@ const char quit = 'Q';
 const char print = ';';
 const char number = '8';
 const char name = 'a';
+const int k = 1000;
 
 Token Token_stream::get()
 {
@@ -42,6 +43,8 @@ Token Token_stream::get()
 	case ';':
 	case '=':
 		return Token(ch);
+	case 'k':
+		return Token(number, k);
 	case '.':
 	case '0':
 	case '1':
