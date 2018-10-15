@@ -1,0 +1,8 @@
+﻿  13_10_18.cpp
+c:\users\oswal\source\repos\project4\project4\13_10_18.cpp(117): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\project4\project4\13_10_18.cpp(124): warning C4018: '<=': no coinciden signed/unsigned
+c:\users\oswal\source\repos\project4\project4\13_10_18.cpp(134): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\project4\project4\13_10_18.cpp(172): error C2361: la inicialización de 'i' se omite en la etiqueta 'default'
+  c:\users\oswal\source\repos\project4\project4\13_10_18.cpp(167): note: vea la declaración de 'i'
+c:\users\oswal\source\repos\project4\project4\13_10_18.cpp(172): error C2361: la inicialización de 'd' se omite en la etiqueta 'default'
+  c:\users\oswal\source\repos\project4\project4\13_10_18.cpp(164): note: vea la declaración de 'd'
