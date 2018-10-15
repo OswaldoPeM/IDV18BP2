@@ -1,0 +1,8 @@
+﻿  Source.cpp
+c:\users\oswal\source\repos\project4\project4\source.cpp(98): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\project4\project4\source.cpp(105): warning C4018: '<=': no coinciden signed/unsigned
+c:\users\oswal\source\repos\project4\project4\source.cpp(115): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\project4\project4\source.cpp(73): warning C4715: 'Token_stream::get': no todas las rutas de acceso de control devuelven un valor
+c:\users\oswal\source\repos\project4\project4\source.cpp(101): warning C4715: 'get_value': no todas las rutas de acceso de control devuelven un valor
+c:\users\oswal\source\repos\project4\project4\source.cpp(144): warning C4715: 'primary': no todas las rutas de acceso de control devuelven un valor
+  Project4.vcxproj -> C:\Users\Oswal\source\repos\Project4\Debug\13_10_18.exe
