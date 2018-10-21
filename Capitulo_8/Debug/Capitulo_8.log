@@ -1,0 +1,6 @@
+﻿  Source.cpp
+c:\users\oswal\source\repos\capitulo_8\capitulo_8\source.cpp(124): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\capitulo_8\capitulo_8\source.cpp(131): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\capitulo_8\capitulo_8\source.cpp(145): warning C4018: '>': no coinciden signed/unsigned
+c:\users\oswal\source\repos\capitulo_8\capitulo_8\source.cpp(152): warning C4018: '<': no coinciden signed/unsigned
+  Capitulo_8.vcxproj -> C:\Users\Oswal\source\repos\Capitulo_8\Debug\Capitulo_8.exe
