@@ -5,11 +5,10 @@
 
 using namespace std;
 
-void Letras(string palabra,string copyPalabra, vector<string> &letras, vector<vector<string>> &grupos, bool isIn=false) {
+void Letras(string palabra, string copia, vector<string> &letras, vector<vector<string>> &grupos) {
 	int tamaño = palabra.size();
 	char comodin = ' ';
-	string copia = copyPalabra;
-	int vuelta = 0;
+
 	for (int i = 0; i < palabra.size(); i++)
 	{
 		for (int j = 1; j < tamaño; j++)
@@ -27,18 +26,19 @@ void Letras(string palabra,string copyPalabra, vector<string> &letras, vector<ve
 	for (int i = 0; i < letras.size(); i++)
 	{
 		if (palabra == letras[i]) {
-			isIn = true;
 			grupos[i].push_back(copia);
-
+			return;
 		}
-		vuelta = i;
 	}
-	if (!isIn)
+	letras.push_back(palabra);
+	grupos.push_back(vector<string>());
+	for (int i = 0; i < letras.size(); i++)
 	{
-		letras.push_back(palabra);
-		grupos[vuelta].push_back(copia);
+		if (palabra == letras[i]) {
+			grupos[i].push_back(copia);
+			return;
+		}
 	}
-	return;
 }
 
 int main() {
@@ -47,6 +47,8 @@ int main() {
 	vector<string> anagramas;
 	vector<string> letras;
 	vector<vector<string>> grupos;
+	int valor = 0;
+	string comodin = "";
 	while (getline(inFile, buffer)) {
 		anagramas.push_back(buffer);
 	}
@@ -57,9 +59,27 @@ int main() {
 
 	for (int i = 0; i < grupos.size(); i++)
 	{
+		for (int j = 0; j < grupos[i].size()-1; j++)
+		{
+			valor = grupos[j].size();
+			for (int k = 0; k < valor; k++)
+			{
+				
+				if (grupos[i][j + 1] < grupos[i][j]) {
+					comodin = grupos[i][j + 1];
+					grupos[i][j + 1] = grupos[i][j];
+					grupos[i][j] = comodin;
+				}
+				
+			}
+		}
+	}
+
+	for (int i = 0; i < grupos.size(); i++)
+	{
 		for (int j = 0; j < grupos[i].size(); j++)
 		{
-			cout << grupos[i][j] << endl;
+			cout <<" "<< grupos[i][j] << endl;
 		}
 		cout << endl;
 	}
