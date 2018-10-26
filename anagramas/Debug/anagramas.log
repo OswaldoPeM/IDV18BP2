@@ -1,0 +1,7 @@
+﻿  Source.cpp
+c:\users\oswal\source\repos\anagramas\anagramas\source.cpp(13): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\anagramas\anagramas\source.cpp(27): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\anagramas\anagramas\source.cpp(53): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\anagramas\anagramas\source.cpp(58): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\anagramas\anagramas\source.cpp(60): warning C4018: '<': no coinciden signed/unsigned
+  anagramas.vcxproj -> C:\Users\Oswal\source\repos\anagramas\Debug\anagramas.exe
