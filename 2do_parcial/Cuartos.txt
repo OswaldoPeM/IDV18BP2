@@ -1,0 +1,20 @@
+-
+N WC Cuarto_Principal Sala_De_Estar null Papel null null
+N Cuarto_Principal WC Pasillo3 null null null null
+N Pasillo3 Cuarto_Principal Balcon Pasillo2 null null null
+N Balcon Pasillo3 null null null null null
+-
+X null null null null null null null 
+X null null null null null null null 
+N Pasillo2 Pasillo3 Pasillo1 null null null null
+X null null null null null null null 
+- 
+N Sala_De_Estar WC Recibidor null null null null
+N Recibidor Sala_De_Estar Pasillo1 Portico null null null
+N Pasillo1 Recibidor null null null null null
+X null null null null null null null 
+-
+X null null null null null null null 
+N Portico Recibidor Jardin null null null null
+N Jardin Portico null null null null null
+X null null null null null null null 
