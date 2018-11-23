@@ -7,11 +7,11 @@ class Tu
 public:
 
 	string amIIn = "";
-	vector<string> inventario;
+	vector<string> inventario,lugares;
 
 	Tu();
 	~Tu();
 private:
-	void mover(char dire);
+
 };
 

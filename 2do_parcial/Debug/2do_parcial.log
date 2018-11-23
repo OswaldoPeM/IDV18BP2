@@ -1,9 +1,9 @@
-﻿  Casa.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (2do_parcial.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
   Cuarto.cpp
   Source.cpp
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(45): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(47): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(40): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(42): warning C4018: '<': no coinciden signed/unsigned
   Tu.cpp
 c:\users\oswal\source\repos\2do_parcial\2do_parcial\tu.cpp(20): warning C4065: la instrucción switch contiene etiquetas 'default' pero no etiquetas 'case'
   Generando código...
-  2do_parcial.vcxproj -> C:\Users\Oswal\source\repos\2do_parcial\Debug\2do_parcial.exe
+  2do_parcial.vcxproj -> C:\Users\Oswal\source\repos\2do_parcial\Debug\Aventura.exe

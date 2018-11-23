@@ -11,12 +11,4 @@ Tu::~Tu()
 {
 }
 
-void Tu::mover(char dire)
-{
-	switch (dire)
-	{
-	default:
-		break;
-	}
-}
 
