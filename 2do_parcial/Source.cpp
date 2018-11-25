@@ -3,40 +3,103 @@
 #include<string>
 #include "Tu.h"
 using namespace std;
-
-Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,string item1,string item2,string item3) {
+void saveData(Tu estado) {
+	ofstream outFile("SaveData.txt", ios_base::out);
+	outFile << "N" << estado.amIIn;
+	for (int i = 0; i < estado.inventario.size(); i++)
+	{
+		outFile << " " << "I"<< estado.inventario[i];
+	}
+	for (int i = 0; i < estado.lugares.size(); i++)
+	{
+		outFile << " " <<"L"<< estado.lugares[i];
+	}
+	outFile.close();
+	return;
+}
+Tu loadData() {
+	Tu estado;
+	string buffer,comodin="";
+	ifstream inFile("SaveData.txt", ios_base::in);
+	while (inFile>>buffer)
+	{
+		switch (buffer[0])
+		{
+		case 'N':
+			for (int i = 1; i < buffer.size(); i++)
+			{
+				comodin += buffer[i];
+			}
+			estado.amIIn = comodin;
+			comodin = "";
+			break;
+		case'I':
+			for (int i = 1; i < buffer.size(); i++)
+			{
+				comodin += buffer[i];
+			}
+			estado.inventario.push_back(comodin);
+			comodin = "";
+			break;
+		case'L':
+			for (int i = 1; i < buffer.size(); i++)
+			{
+				comodin += buffer[i];
+			}
+			estado.lugares.push_back(comodin);
+			comodin = "";
+			break;
+		default:
+			break;
+		}
+	}
+	inFile.close();
+	return estado;
+}
+Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,string item1,string item2,string item3,Tu jugador) {
+	for (int i = 0; i < jugador.inventario.size(); i++)
+	{
+		if (item1 == jugador.inventario[i])
+		{
+			item1 = "null";
+		}
+		if (item2 == jugador.inventario[i])
+		{
+			item2 = "null";
+		}
+		if (item3 == jugador.inventario[i])
+		{
+			item3 = "null";
+		}
+	}
 	Cuarto New(nombre, cone1, cone2, cone3, item1, item2, item3);
 	return New;
 }
-Casa construirCasa() {
-	ifstream inFile("cuartitos.txt");
+Casa construirCasa(Tu jugador) {
+	ifstream inFile("Cuartos.txt");
 	string opcion,nombre,cone1,cone2,cone3,item1,item2,item3;
 	bool cuartoLista = true;
 	Casa laCasa;
-	Cuarto *cuartito;
-
-	int piso = 0;
+	Cuarto cuartito;
+	int piso = -1;
+	/*int piso = 0;
 	laCasa.piso();
 	while (cuartoLista) {
 		inFile >> opcion;
 		switch (opcion[0])
 		{
 		case 'N':
-			*cuartito.nombre(opcion);
+			cuartito.nombre(opcion);
 			break;
 		case 'C':
 			break;
 		case 'I':
 			break;
 		case '+':
-			laCasa.Build(*cuartito, piso);
-			delete cuartito;
-			Cuarto*cuartito;
+			laCasa.Build(cuartito, piso);
 			break;
 		case 'n':
-			laCasa.Build(*cuartito, piso);
-			delete cuartito;
-			Cuarto*cuartito;
+			laCasa.Build(cuartito, piso);
 			break;
 		case '-':
 			laCasa.piso();
@@ -48,26 +111,26 @@ Casa construirCasa() {
 			break;
 		}
 
-	}
+	}*/
 		
 	
-	//while (inFile>>opcion>>nombre>>cone1>>cone2>>cone3>>item1>>item2>>item3){
-	//	switch (opcion[0])
-	//	{
-	//	case '-':
-	//		laCasa.piso();// tecnicamente no es un piso pero si una linea, donde se localizaran los cuartos  de esa linea.
-	//		piso += 1;
-	//		break;
-	//	case 'N':
-	//		New = construirCuarto(nombre, cone1, cone2, cone3, item1, item2, item3);// hace un cuarto
-	//		laCasa.Build(cuartito, piso);
-	//		nombre = "Null";
-	//		break;
-	//	default:
-	//		break;
-	//	}
+	while (inFile>>opcion>>nombre>>cone1>>cone2>>cone3>>item1>>item2>>item3){
+		switch (opcion[0])
+		{
+		case '-':
+			laCasa.piso();// tecnicamente no es un piso pero si una linea, donde se localizaran los cuartos  de esa linea.
+			piso += 1;
+			break;
+		case 'N':
+			cuartito = construirCuarto(nombre, cone1, cone2, cone3, item1, item2, item3,jugador);// hace un cuarto
+			laCasa.Build(cuartito, piso);
+			nombre = "Null";
+			break;
+		default:
+			break;
+		}
 
-	//}
+	}
 
 	inFile.close();
 	return laCasa;
@@ -109,8 +172,14 @@ void showMap(Casa casa,Tu jugador) {
 
 int main()
 {
-	Casa casa = construirCasa();
+	char partida;
 	Tu jugador;
+	cout << "Desea cargar la partida?" << endl << "Y/N" << endl;
+	cin >> partida;
+	if (partida == 'y'|| partida=='Y') {
+		jugador = loadData();
+	}
+	Casa casa = construirCasa(jugador);
 	showMap(casa,jugador);
 
 	cin.get();
