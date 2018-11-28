@@ -7,7 +7,7 @@ class Tu
 public:
 
 	string amIIn = "";
-	vector<string> inventario,lugares;
+	vector<string> inventario, lugares;
 
 	Tu();
 	~Tu();

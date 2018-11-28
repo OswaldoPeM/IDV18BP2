@@ -2,7 +2,41 @@
 #include<fstream>
 #include<string>
 #include "Tu.h"
+
 using namespace std;
+Tu moverse(Tu jugador,Casa elcasa) {
+	string nuevoLugar;
+	int opcion,fila,columna;
+	cout << "Seleccione la opcion para " << endl;
+	for (int i = 0; i < elcasa._TuCasa.size(); i++)
+	{
+		for (int j = 0; j < elcasa._TuCasa[i].size(); j++)
+		{
+			if (jugador.amIIn == elcasa._TuCasa[i][j].NOMBRE()) {
+				fila = i;
+				columna = j;
+				for (int k = 0; k < elcasa._TuCasa[i][j]._conect.size(); k++)
+				{
+					cout << k + 1 << ". Moverte a " << elcasa._TuCasa[i][j]._conect[k] << endl;
+				}
+			}
+		}
+	}
+	cin >> opcion;
+	jugador.amIIn = elcasa._TuCasa[fila][columna]._conect[opcion-1];
+	for (int i = 0; i < elcasa._TuCasa.size(); i++)
+	{
+		for (int j = 0; j < elcasa._TuCasa[i].size(); j++)
+		{
+			if (jugador.amIIn == elcasa._TuCasa[i][j].NOMBRE()) {
+				elcasa._TuCasa[i][j].visit();
+			}
+
+
+		}
+	}
+	return jugador;
+}
 void saveData(Tu estado) {
 	ofstream outFile("SaveData.txt", ios_base::out);
 	outFile << "N" << estado.amIIn;
@@ -13,7 +47,7 @@ void saveData(Tu estado) {
 	for (int i = 0; i < estado.lugares.size(); i++)
 	{
 		outFile << " " <<"L"<< estado.lugares[i];
-	}
+	} 
 	outFile.close();
 	return;
 }
@@ -73,6 +107,12 @@ Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,stri
 		}
 	}
 	Cuarto New(nombre, cone1, cone2, cone3, item1, item2, item3);
+	for (int i = 0; i < jugador.lugares.size(); i++)
+	{
+		if (jugador.lugares[i] == nombre) {
+			New.visit();
+		}
+	}
 	return New;
 }
 Casa construirCasa(Tu jugador) {
@@ -82,6 +122,7 @@ Casa construirCasa(Tu jugador) {
 	Casa laCasa;
 	Cuarto cuartito;
 	int piso = -1;
+
 	/*int piso = 0;
 	laCasa.piso();
 	while (cuartoLista) {
@@ -137,12 +178,13 @@ Casa construirCasa(Tu jugador) {
 }
 
 void showMap(Casa casa,Tu jugador) {
+	system("cls");
 	for (int i = 0; i < casa._TuCasa.size(); i++)
 	{
 		for (int j = 0; j < casa._TuCasa[i].size(); j++)
 		{
 			if (casa._TuCasa[i][j].NOMBRE()=="null") {
-				cout << "___";
+				cout << "   ";
 			}
 			else
 			{
@@ -161,12 +203,13 @@ void showMap(Casa casa,Tu jugador) {
 				}
 				else
 				{
-					cout << "___";
+					cout << "   ";
 				}
 			}
 		}
 		cout << endl;
 	}
+
 	return;
 }
 
@@ -180,8 +223,15 @@ int main()
 		jugador = loadData();
 	}
 	Casa casa = construirCasa(jugador);
+	jugador.amIIn = "Jardin";
+
+	while (! (jugador.amIIn == "WC"))
+	{
+	jugador = moverse(jugador, casa);
 	showMap(casa,jugador);
 
+	}
+	cin.ignore();
 	cin.get();
 	return 0;
 }

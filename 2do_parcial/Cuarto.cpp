@@ -13,6 +13,12 @@ void Cuarto::visit()
 	wasIHere = true;
 }
 
+void Cuarto::solve()
+{
+	solved = true;
+	return;
+}
+
 void Cuarto::nombre(string Nombre)
 {
 	_nombre = Nombre;

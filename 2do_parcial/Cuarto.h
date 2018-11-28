@@ -7,11 +7,13 @@ class Cuarto
 {
 private:
 	string _nombre="Null";//nombre del cuarto
-	vector<string> _conect,_item; //lista de conecciones que hay entre cuartos e items disponibles en el cuarto	
 public:
+	vector<string> _conect,_item; //lista de conecciones que hay entre cuartos e items disponibles en el cuarto	
 	string NOMBRE();
+	bool solved = false;
 	bool wasIHere=false;//he estado aqui?
 	void visit();
+	void solve();
 	void nombre(string Nombre);
 	void conect(string Conect);
 	void item(string Item);

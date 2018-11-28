@@ -11,7 +11,7 @@ N null null null null null null null
 - null null null null null null null 
 N Sala_De_Estar WC Recibidor null null null null
 N Recibidor Sala_De_Estar Pasillo1 Portico null null null
-N Pasillo1 Recibidor null null null null null
+N Pasillo1 Recibidor Pasillo2 null null null null
 N null null null null null null null 
 - null null null null null null null 
 N null null null null null null null 
