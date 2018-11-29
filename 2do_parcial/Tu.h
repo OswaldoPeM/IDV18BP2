@@ -6,8 +6,8 @@ class Tu
 {
 public:
 
-	string amIIn = "";
-	vector<string> inventario, lugares;
+	string amIIn = "",placeBefore="";
+	vector<string> inventario, lugares, solvedplaces;
 
 	Tu();
 	~Tu();

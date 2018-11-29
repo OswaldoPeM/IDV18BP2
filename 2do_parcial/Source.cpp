@@ -4,9 +4,60 @@
 #include "Tu.h"
 
 using namespace std;
-Tu moverse(Tu jugador,Casa elcasa) {
+void texto(int columna, int fila, bool visitado,string nombre) {// muestra el texto  segun si ya has visitado.
+	string buffer;
+	bool esEste;
+
+	if (!(visitado)) {
+		ifstream inFile("Primera.txt");
+		while (getline(inFile, buffer))
+		{
+			esEste = true;
+			for (int i = 0; i < nombre.size(); i++)
+			{
+
+				if (buffer[i] != nombre[i])
+				{
+					esEste = false;
+					break;
+				}
+			}
+			if (esEste)
+			{
+				cout << buffer;
+			}
+		}
+		inFile.close();
+	}
+	if (visitado) {
+		ifstream inFile("Segunda.txt");
+		while (getline(inFile, buffer))
+		{
+			esEste = true;
+			for (int i = 0; i < nombre.size(); i++)
+			{
+				if (buffer[i] != nombre[i])
+				{
+					esEste = false;
+					break;
+				}
+			}
+			if (esEste)
+			{
+				cout << buffer;
+			}
+		}
+		inFile.close();
+	}
+
+	cin.ignore();
+	cin.get();
+	return;
+}
+Tu moverse(Tu jugador,Casa &elcasa) {
 	string nuevoLugar;
-	int opcion,fila,columna;
+	int opcion=5,fila,columna,maximo;
+	jugador.placeBefore = jugador.amIIn;
 	cout << "Seleccione la opcion para " << endl;
 	for (int i = 0; i < elcasa._TuCasa.size(); i++)
 	{
@@ -17,37 +68,55 @@ Tu moverse(Tu jugador,Casa elcasa) {
 				columna = j;
 				for (int k = 0; k < elcasa._TuCasa[i][j]._conect.size(); k++)
 				{
-					cout << k + 1 << ". Moverte a " << elcasa._TuCasa[i][j]._conect[k] << endl;
+					cout << k + 1 << ". Moverte a " << elcasa._TuCasa[i][j]._conect[k] << endl; //muestra opciones a donde puedes moverte
+					maximo = k;
 				}
 			}
-		}
+		} 
 	}
-	cin >> opcion;
-	jugador.amIIn = elcasa._TuCasa[fila][columna]._conect[opcion-1];
-	for (int i = 0; i < elcasa._TuCasa.size(); i++)
+	while ((opcion<1||opcion>maximo+1)) // se asegura de que puedas moverte y no salte un error.
+	{
+		cout << "Introduce una opcion valida :";
+	    cin >> opcion;
+	}
+	
+	jugador.amIIn = elcasa._TuCasa[fila][columna]._conect[opcion-1]; //Cambia tu ubicacion
+	for (int i = 0; i < elcasa._TuCasa.size(); i++) //visita el cuarto
 	{
 		for (int j = 0; j < elcasa._TuCasa[i].size(); j++)
 		{
 			if (jugador.amIIn == elcasa._TuCasa[i][j].NOMBRE()) {
+
+				texto(i, j, elcasa._TuCasa[i][j].wasIHere,elcasa._TuCasa[i][j].NOMBRE());
+
 				elcasa._TuCasa[i][j].visit();
 			}
 
 
 		}
 	}
+
 	return jugador;
+}
+void regresar(Tu &jugador) { 
+	jugador.amIIn = jugador.placeBefore;
 }
 void saveData(Tu estado) {
 	ofstream outFile("SaveData.txt", ios_base::out);
 	outFile << "N" << estado.amIIn;
+	outFile << "B" << estado.placeBefore;
 	for (int i = 0; i < estado.inventario.size(); i++)
 	{
 		outFile << " " << "I"<< estado.inventario[i];
 	}
 	for (int i = 0; i < estado.lugares.size(); i++)
 	{
-		outFile << " " <<"L"<< estado.lugares[i];
-	} 
+		outFile << " " << "L" << estado.lugares[i];
+	}
+	for (int i = 0; i < estado.solvedplaces.size(); i++)
+	{
+		outFile << " " << "S" << estado.solvedplaces[i];
+	}
 	outFile.close();
 	return;
 }
@@ -67,6 +136,14 @@ Tu loadData() {
 			estado.amIIn = comodin;
 			comodin = "";
 			break;
+		case 'B':
+			for (int i = 1; i < buffer.size(); i++)
+			{
+				comodin += buffer[i];
+			}
+			estado.placeBefore = comodin;
+			comodin = "";
+			break;
 		case'I':
 			for (int i = 1; i < buffer.size(); i++)
 			{
@@ -81,6 +158,14 @@ Tu loadData() {
 				comodin += buffer[i];
 			}
 			estado.lugares.push_back(comodin);
+			comodin = "";
+			break;
+		case'S':
+			for (int i = 1; i < buffer.size(); i++)
+			{
+				comodin += buffer[i];
+			}
+			estado.solvedplaces.push_back(comodin);
 			comodin = "";
 			break;
 		default:
@@ -111,6 +196,12 @@ Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,stri
 	{
 		if (jugador.lugares[i] == nombre) {
 			New.visit();
+		}
+	}
+	for (int i = 0; i < jugador.solvedplaces.size(); i++)
+	{
+		if (jugador.solvedplaces[i] == nombre) {
+			New.solve();
 		}
 	}
 	return New;
@@ -176,7 +267,6 @@ Casa construirCasa(Tu jugador) {
 	inFile.close();
 	return laCasa;
 }
-
 void showMap(Casa casa,Tu jugador) {
 	system("cls");
 	for (int i = 0; i < casa._TuCasa.size(); i++)
@@ -222,11 +312,13 @@ int main()
 	if (partida == 'y'|| partida=='Y') {
 		jugador = loadData();
 	}
+	
 	Casa casa = construirCasa(jugador);
 	jugador.amIIn = "Jardin";
-
-	while (! (jugador.amIIn == "WC"))
+	casa._TuCasa[3][2].visit();
+	while (! (casa._TuCasa[0][0].solved))
 	{
+
 	jugador = moverse(jugador, casa);
 	showMap(casa,jugador);
 

@@ -6,7 +6,7 @@ using namespace std;
 class Cuarto
 {
 private:
-	string _nombre="Null";//nombre del cuarto
+	string _nombre = "Null";//nombre del cuarto
 public:
 	vector<string> _conect,_item; //lista de conecciones que hay entre cuartos e items disponibles en el cuarto	
 	string NOMBRE();

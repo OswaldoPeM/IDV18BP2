@@ -11,6 +11,7 @@ string Cuarto::NOMBRE()
 void Cuarto::visit()
 {
 	wasIHere = true;
+	return;
 }
 
 void Cuarto::solve()
