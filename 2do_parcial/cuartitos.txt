@@ -1,0 +1,1 @@
+NWC CCuarto_Principal CSala_De_Estar IPapel + NCuarto_Principal CWC CPasillo3 + NPasillo3 CCuarto_Principal CBalcon CPasillo2 + NBalcon CPasillo3 + - null + null + NPasillo2 CPasillo3 CPasillo1 + null + - NSala_De_Estar CWC CRecibidor + NRecibidor CSala_De_Estar CPasillo1 CPortico + NPasillo1 CRecibidor + null + - null + NPortico CRecibidor CJardin + NJardin CPortico + null + F 
