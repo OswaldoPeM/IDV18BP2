@@ -1,0 +1,10 @@
+Jardin
+Portico 
+Recibidor
+Sala_De_Estar -"van 10 veces que leo esta revista"
+Pasillo1 -"mijoooo"
+Pasillo2 -"MIJO"
+Pasillo3 -suena como mi madre sigue cocinando.
+Cocina -se escucha como tu madre tararea una cancion mientras cocina.
+Cuarto_Principal -muchos recuerdos...
+WC 

@@ -1,0 +1,31 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (Aventura.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  Source.cpp
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(11): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(14): warning C4552: ">>": el resultado de la expresión no se usa
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(25): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(28): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(44): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(61): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(64): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(91): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(112): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(139): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(141): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(146): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(162): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(164): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(188): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(192): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(196): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(212): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(220): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(228): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(236): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(244): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(259): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(275): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(281): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(355): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(357): warning C4018: '<': no coinciden signed/unsigned
+c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(411): warning C4129: 'P': secuencia de escape de carácter no reconocida
+  2do_parcial.vcxproj -> C:\Users\Oswal\source\repos\2do_parcial\Debug\2do_parcial.exe
