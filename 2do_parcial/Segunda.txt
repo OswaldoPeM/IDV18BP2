@@ -1,6 +1,6 @@
 Jardin
 Portico 
-Recibidor -"hijo, trajiste la caja?"
+Recibidor -Se escucha al fondo la musica que tu padre pone cuando se va a leer
 Sala_De_Estar -"van 10 veces que leo esta revista"
 Pasillo1 -"mijoooo"
 Pasillo2 -"MIJO"
