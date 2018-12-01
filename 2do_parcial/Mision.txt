@@ -1,0 +1,10 @@
+Jardin null
+Portico Llave
+Recibidor Caja
+Sala_De_Estar Revistas
+Pasillo1 Escoba
+Pasillo2 Escoba_
+Pasillo3 Arete_Derecho
+Cocina Bolsas_De_Mercado
+Cuarto_Principal Juguete_Para_Perro 
+WC Papel_de_baño
