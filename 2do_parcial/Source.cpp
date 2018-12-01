@@ -11,7 +11,7 @@ void recojer(Tu &jugador, Cuarto *cuarto) {
 	for (int i = 0; i < cuarto->_item.size(); i++)
 	{
 		cout << "Presiona " << i + 1 << " para tomar " << cuarto->_item[i]<<endl;
-		i >> maximo;
+		maximo=i;
 	}
 
 	while ((opcion<1 || opcion>maximo + 1))
@@ -22,7 +22,21 @@ void recojer(Tu &jugador, Cuarto *cuarto) {
 	cout << endl;
 	opcion--;
 	jugador.inventario.push_back(cuarto->_item[opcion]);
+	if (maximo > 0) {
 
+		for (int i = 0; i < cuarto->_item.size(); i++)
+		{
+			if (i == opcion) {
+				while (i < cuarto->_item.size())
+				{
+					cuarto->_item[i] = cuarto->_item[i + 1];
+					i++;
+				}
+				break;
+			}
+		}
+	}
+	cuarto->_item.pop_back();
 	//cuarto->_item[opcion].erase;
 	return;
 
@@ -47,7 +61,24 @@ void usarItem(Tu &jugador) {
 	{
 		if (cuarto == jugador.estoy->NOMBRE()) {
 			if (solucion == jugador.inventario[opcion]) {
+				jugador.usedItems.push_back(jugador.inventario[opcion]);
 				jugador.estoy->solve();
+				jugador.solvedplaces.push_back(jugador.amIIn);
+
+				for (int i = 0; i < jugador.inventario.size(); i++)
+				{
+					if (i == opcion) {
+						while (i < jugador.inventario.size())
+						{
+							jugador.inventario[i] = jugador.inventario[i + 1];
+							i++;
+						}
+						break;
+					}
+
+					jugador.inventario.pop_back();
+				}
+				break;
 				return;
 			}
 		}
@@ -362,13 +393,17 @@ int main()
 		system("cls");
 		cout << "Estas en " << jugador.estoy->NOMBRE() << endl;
 		if (jugador.estoy->solved) {
-			cout << "presiona W para moverte\nPresiona R para buscar en este lugar algo que tomar" << endl;
+			cout << "Presiona W para moverte" << endl;
 		}
-		cout << "presiona U para usar item en esta habitacion\nPresiona S para salvar el juego\nPresiona M para mostrar el mapa\nPresiona V para volver al cuarto anterior\n" << endl;
+		if (jugador.estoy->solved && (jugador.estoy->_item.size() > 0 )) {
+			cout << "Presiona R para buscar en este lugar algo que tomar" << endl;
+		}
+		cout << "Presiona U para usar item en esta habitacion\nPresiona S para salvar el juego\nPresiona M para mostrar el mapa\nPresiona V para volver al cuarto anterior\nPresiona Q para salir del juego" << endl;
 		cin >> partida;
 
 		switch (partida)
 		{
+		case'm':
 		case 'M':
 			showMap(*casa, jugador);
 			break;
@@ -383,8 +418,9 @@ int main()
 				cout << "Tienes que resolver antes este lugar" << endl;
 			}
 			break;
+		case'r':
 		case 'R':
-			if (jugador.estoy->solved)
+			if (jugador.estoy->solved && (jugador.estoy->_item.size() > 0))
 			{
 				recojer(jugador, jugador.estoy);
 			}
@@ -393,20 +429,22 @@ int main()
 				cout << "Tienes que resolver antes este lugar" << endl;
 			}
 			break;
+		case's':
 		case 'S':
 			saveData(jugador);
 			break;
-
+		case'u':
 		case 'U':
 			usarItem(jugador);
 			break;
+		case'v':
 		case'V':
 			regresar(jugador);
 			break;
 		default:
 			break;
 		}
-
+		if (partida=='/')
 	}
 	delete casa;
 	cin.ignore();
