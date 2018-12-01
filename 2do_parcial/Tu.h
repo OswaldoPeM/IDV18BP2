@@ -8,7 +8,7 @@ public:
 	Cuarto *estoy=new Cuarto();
 	Cuarto *estuve=new Cuarto();
 	string amIIn = "",placeBefore="";
-	vector<string> inventario, lugares, solvedplaces;
+	vector<string> inventario, lugares, solvedplaces, usedItems;
 
 	Tu();
 	~Tu();

@@ -11,7 +11,7 @@ N null null null null null null null
 - null null null null null null null 
 N Sala_De_Estar Recibidor null null Escoba null null
 N Recibidor Sala_De_Estar Pasillo1 Portico Bolsas_De_Mercado null null
-N Pasillo1 Recibidor Pasillo2 null null null null
+N Pasillo1 Recibidor Pasillo2 null Escoba_ null null
 N null null null null null null null 
 - null null null null null null null 
 N null null null null null null null 

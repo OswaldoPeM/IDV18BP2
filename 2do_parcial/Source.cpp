@@ -6,7 +6,7 @@
 using namespace std;
 void recojer(Tu &jugador, Cuarto *cuarto) {
 	system("cls");
-	int opcion = 0, maximo = 0;
+	int opcion = 250, maximo = 0;
 
 	for (int i = 0; i < cuarto->_item.size(); i++)
 	{
@@ -14,7 +14,7 @@ void recojer(Tu &jugador, Cuarto *cuarto) {
 		maximo=i;
 	}
 
-	while ((opcion<1 || opcion>maximo + 1))
+	while (!(opcion>0 && opcion<maximo + 2))
 	{
 		cout << "Introduce una opcion valida :";
 		cin >> opcion;
@@ -27,7 +27,7 @@ void recojer(Tu &jugador, Cuarto *cuarto) {
 		for (int i = 0; i < cuarto->_item.size(); i++)
 		{
 			if (i == opcion) {
-				while (i < cuarto->_item.size())
+				while (i < cuarto->_item.size()-1)
 				{
 					cuarto->_item[i] = cuarto->_item[i + 1];
 					i++;
@@ -43,14 +43,14 @@ void recojer(Tu &jugador, Cuarto *cuarto) {
 }
 void usarItem(Tu &jugador) {
 	system("cls");
-	int maximo = 5, opcion = -1;
+	int maximo = 5, opcion = 250;
 	cout << "Tienes estos items " << endl;
 	for (int i = 0; i < jugador.inventario.size(); i++)
 	{
 		cout << i + 1 << ". " << jugador.inventario[i] << endl;
 	}
 	string cuarto, solucion, item;
-	while ((opcion<1 || opcion>maximo + 1))
+	while (!(opcion>0 && opcion<maximo + 2))
 	{
 		cout << "Introduce una opcion valida :";
 		cin >> opcion;
@@ -64,22 +64,30 @@ void usarItem(Tu &jugador) {
 				jugador.usedItems.push_back(jugador.inventario[opcion]);
 				jugador.estoy->solve();
 				jugador.solvedplaces.push_back(jugador.amIIn);
-
-				for (int i = 0; i < jugador.inventario.size(); i++)
+				if (opcion==jugador.inventario.size())
 				{
-					if (i == opcion) {
-						while (i < jugador.inventario.size())
-						{
-							jugador.inventario[i] = jugador.inventario[i + 1];
-							i++;
-						}
-						break;
-					}
-
 					jugador.inventario.pop_back();
+					inFile.close();
+					return;
 				}
-				break;
-				return;
+				else
+				{
+
+					for (int i = 0; i < jugador.inventario.size(); i++)
+					{
+						if (i == opcion) {
+							while (i < jugador.inventario.size() - 1)
+							{
+								jugador.inventario[i] = jugador.inventario[i + 1];
+								i++;
+							} 
+							break;
+						}
+					}
+					jugador.inventario.pop_back();
+					inFile.close();
+					return;
+				}
 			}
 		}
 	}
@@ -140,7 +148,7 @@ void texto(int columna, int fila, bool visitado,string nombre) {// muestra el te
 }
 Tu moverse(Tu jugador,Casa &elcasa) {
 	string nuevoLugar;
-	int opcion=5,fila,columna,maximo;
+	int opcion=250,fila,columna,maximo;
 	jugador.placeBefore = jugador.amIIn;
 	jugador.estuve = jugador.estoy;
 	cout << "Seleccione la opcion para " << endl;
@@ -159,13 +167,13 @@ Tu moverse(Tu jugador,Casa &elcasa) {
 			}
 		} 
 	}
-	while ((opcion<1||opcion>maximo+1)) // se asegura de que puedas moverte y no salte un error.
+	while (!(opcion>0 && opcion<maximo+2)) // se asegura de que puedas moverte y no salte un error.
 	{
 		cout << "Introduce una opcion valida :";
 	    cin >> opcion;
 	}
-	
-	jugador.amIIn = elcasa._TuCasa[fila][columna]._conect[opcion-1]; //Cambia tu ubicacion
+	opcion--;
+	jugador.amIIn = elcasa._TuCasa[fila][columna]._conect[opcion]; //Cambia tu ubicacion
 	for (int i = 0; i < elcasa._TuCasa.size(); i++) //visita el cuarto
 	{
 		for (int j = 0; j < elcasa._TuCasa[i].size(); j++)
@@ -173,15 +181,15 @@ Tu moverse(Tu jugador,Casa &elcasa) {
 			if (jugador.amIIn == elcasa._TuCasa[i][j].NOMBRE()) {
 
 				texto(i, j, elcasa._TuCasa[i][j].wasIHere,elcasa._TuCasa[i][j].NOMBRE());
-
+				if (!elcasa._TuCasa[i][j].wasIHere)
+				{
+					jugador.lugares.push_back(elcasa._TuCasa[i][j].NOMBRE());
+				}
 				elcasa._TuCasa[i][j].visit();
 				jugador.estoy = &elcasa._TuCasa[i][j];
 			}
-
-
 		}
 	}
-
 	return jugador;
 }
 void regresar(Tu &jugador) { 
@@ -204,6 +212,10 @@ void saveData(Tu estado) {
 	for (int i = 0; i < estado.solvedplaces.size(); i++)
 	{
 		outFile << " " << "S" << estado.solvedplaces[i];
+	}
+	for (int i = 0; i < estado.usedItems.size(); i++)
+	{
+		outFile << " " << "U" << estado.usedItems[i];
 	}
 	outFile.close();
 	return;
@@ -256,6 +268,14 @@ Tu loadData() {
 			estado.solvedplaces.push_back(comodin);
 			comodin = "";
 			break;
+		case'U':
+			for (int i = 1; i < buffer.size(); i++)
+			{
+				comodin += buffer[i];
+			}
+			estado.usedItems.push_back(comodin);
+			comodin = "";
+			break;
 		default:
 			break;
 		}
@@ -263,8 +283,8 @@ Tu loadData() {
 	inFile.close();
 	return estado;
 }
-Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,string item1,string item2,string item3,Tu jugador) {
-	for (int i = 0; i < jugador.inventario.size(); i++)
+Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,string item1,string item2,string item3,Tu &jugador) {
+	for (int i = 0; i < jugador.inventario.size(); i++) // si tengo este intem a en el inventario no agregarlo a la casa.
 	{
 		if (item1 == jugador.inventario[i])
 		{
@@ -278,11 +298,29 @@ Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,stri
 		{
 			item3 = "null";
 		}
+	} 
+	for (int i = 0; i < jugador.usedItems.size(); i++) //si ya ehe usado este item, no agregar a la casa.
+	{
+		if (item1 == jugador.usedItems[i])
+		{
+			item1 = "null";
+		}
+		if (item2 == jugador.usedItems[i])
+		{
+			item2 = "null";
+		}
+		if (item3 == jugador.usedItems[i])
+		{
+			item3 = "null";
+		}
 	}
 	Cuarto New(nombre, cone1, cone2, cone3, item1, item2, item3);
-	if (nombre == jugador.amIIn) {
-	jugador.estoy = &New;
+	/*if (nombre == jugador.amIIn) {
+		jugador.estoy = &New;
 	}
+	if (nombre == jugador.placeBefore) {
+		jugador.estuve = &New;
+	}*/
 	for (int i = 0; i < jugador.lugares.size(); i++)
 	{
 		if (jugador.lugares[i] == nombre) {
@@ -297,7 +335,7 @@ Cuarto construirCuarto(string nombre,string cone1,string cone2,string cone3,stri
 	}
 	return New;
 }
-Casa* construirCasa(Tu jugador) {
+Casa* construirCasa(Tu &jugador) {
 	ifstream inFile("Cuartos.txt");
 	string opcion,nombre,cone1,cone2,cone3,item1,item2,item3;
 	bool cuartoLista = true;
@@ -328,7 +366,6 @@ Casa* construirCasa(Tu jugador) {
 	return laCasa;
 }
 void showMap(Casa casa,Tu jugador) {
-	system("cls");
 	for (int i = 0; i < casa._TuCasa.size(); i++)
 	{
 		for (int j = 0; j < casa._TuCasa[i].size(); j++)
@@ -359,12 +396,26 @@ void showMap(Casa casa,Tu jugador) {
 		}
 		cout << endl;
 	}
-
 	return;
 }
-
+Tu ubicacion(Casa casa, Tu jugador) {
+	for (int i = 0; i < casa._TuCasa.size(); i++)
+	{
+		for (int j = 0; j < casa._TuCasa[i].size(); j++)
+		{
+			if (casa._TuCasa[i][j].NOMBRE() == jugador.amIIn) {
+				jugador.estoy = &casa._TuCasa[i][j];
+			}
+			if (casa._TuCasa[i][j].NOMBRE() == jugador.placeBefore) {
+				jugador.estuve = &casa._TuCasa[i][j];
+			}
+		}
+	}
+	return jugador;
+}
 int main()
 {
+	bool map= false;
 	char partida;
 	Tu jugador;
 	cout << "Desea cargar la partida?" << endl << "Y/N" << endl;
@@ -374,11 +425,24 @@ int main()
 	}
 	
 	Casa* casa = construirCasa(jugador);
+	for (int i = 0; i < casa->_TuCasa.size(); i++)
+	{
+		for (int j = 0; j < casa->_TuCasa[i].size(); j++)
+		{
+			if (casa->_TuCasa[i][j].NOMBRE() == jugador.amIIn) {
+				jugador.estoy = &casa->_TuCasa[i][j];
+			}
+			if (casa->_TuCasa[i][j].NOMBRE() == jugador.placeBefore) {
+				jugador.estuve = &casa->_TuCasa[i][j];
+			}
+		}
+	}
 	if (partida=='N'||partida=='n')
 	{
 
 	jugador.amIIn = "Jardin";
 	jugador.lugares.push_back(jugador.amIIn);
+	jugador.solvedplaces.push_back(jugador.amIIn);
 	casa->_TuCasa[3][2].visit();
 	casa->_TuCasa[3][2].solve();
 	jugador.estoy = &casa->_TuCasa[3][2];
@@ -386,10 +450,6 @@ int main()
 	
 	while (!(casa->_TuCasa[0][0].solved))
 	{
-		if (!jugador.estoy->solved)
-		{
-			jugador.lugares.push_back(jugador.amIIn);
-		}
 		system("cls");
 		cout << "Estas en " << jugador.estoy->NOMBRE() << endl;
 		if (jugador.estoy->solved) {
@@ -398,14 +458,30 @@ int main()
 		if (jugador.estoy->solved && (jugador.estoy->_item.size() > 0 )) {
 			cout << "Presiona R para buscar en este lugar algo que tomar" << endl;
 		}
-		cout << "Presiona U para usar item en esta habitacion\nPresiona S para salvar el juego\nPresiona M para mostrar el mapa\nPresiona V para volver al cuarto anterior\nPresiona Q para salir del juego" << endl;
+		if (jugador.estuve->NOMBRE() != "Null")
+		{
+			cout << "Presiona V para volver al cuarto anterior" << endl;
+		}
+		cout << "Presiona U para usar item en esta habitacion\nPresiona S para salvar el juego\nPresiona M para mostrar el mapa\nPresiona Q para salir del juego" << endl;
+		
+		if (map) {
+			cout << "\n\n\n\n\n\n\n\n\n\n\n" << endl;
+			showMap(*casa, jugador);
+		}
+
 		cin >> partida;
 
 		switch (partida)
 		{
 		case'm':
 		case 'M':
-			showMap(*casa, jugador);
+			if (map)
+			{
+				map = false;
+			}
+			if (!map) {
+				map = true;
+			}
 			break;
 		case 'w':
 		case 'W':
@@ -435,16 +511,37 @@ int main()
 			break;
 		case'u':
 		case 'U':
+			if (jugador.inventario.size()>0)
+			{
 			usarItem(jugador);
+			}
+			else
+			{
+				cout << "\nno tienes items.\n";
+			}
 			break;
 		case'v':
 		case'V':
+			if (jugador.estuve->NOMBRE() != "Null") {
 			regresar(jugador);
+			}
 			break;
+		case 'q':
+		case 'Q':
+			cout << "Quieres salir? Y/N" << endl;
+			cin >> partida;
+			if (partida == 'y' || partida == 'Y') {
+				partida = '/';
+			}
 		default:
 			break;
 		}
-		if (partida=='/')
+		if (partida == '/') { break; }
+	}
+
+	if (casa->_TuCasa[0][0].solved)
+	{
+		cout << "Felicidades has hecho." << endl;
 	}
 	delete casa;
 	cin.ignore();
