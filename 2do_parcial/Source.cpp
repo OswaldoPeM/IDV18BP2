@@ -472,7 +472,7 @@ int main()
 			}
 		}
 	}
-	if (partida=='N'||partida=='n')
+	if (!(partida=='Y'||partida=='y'))
 	{
 
 	jugador.amIIn = "Jardin";
