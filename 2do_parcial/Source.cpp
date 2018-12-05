@@ -4,6 +4,44 @@
 #include "Tu.h"
 
 using namespace std;
+int GetInt() {
+	char opcion = 'c';
+	int valor = 250;
+	do
+	{
+		cout << "Introduce una opcion valida :" << endl;
+		cin >> opcion;
+
+	} while (opcion<47 && opcion>58);
+	
+
+	
+	switch (opcion)
+	{
+	case '1':
+		valor = 1; break;
+	case '2':
+		valor = 2; break;
+	case '3':
+		valor = 3; break;
+	case '4':
+		valor = 4; break;
+	case '5':
+		valor = 5; break;
+	case '6':
+		valor = 6; break;
+	case '7':
+		valor = 7; break;
+	case '8':
+		valor = 8; break;
+	case '9':
+		valor = 9; break;
+	default:
+		break;
+	}
+	return valor;
+	
+}
 void recojer(Tu &jugador, Cuarto *cuarto) {
 	system("cls");
 	int opcion = 250, maximo = 0;
@@ -16,8 +54,7 @@ void recojer(Tu &jugador, Cuarto *cuarto) {
 
 	while (!(opcion>0 && opcion<maximo + 2))
 	{
-		cout << "Introduce una opcion valida :";
-		cin >> opcion;
+		opcion= GetInt();
 	}
 	cout << endl;
 	opcion--;
@@ -52,8 +89,7 @@ void usarItem(Tu &jugador) {
 	string cuarto, solucion, item;
 	while (!(opcion>0 && opcion<maximo + 2))
 	{
-		cout << "Introduce una opcion valida :";
-		cin >> opcion;
+		opcion = GetInt();
 	}
 	opcion--;
 	ifstream inFile("Mision.txt");
@@ -169,8 +205,7 @@ Tu moverse(Tu jugador,Casa &elcasa) {
 	}
 	while (!(opcion>0 && opcion<maximo+2)) // se asegura de que puedas moverte y no salte un error.
 	{
-		cout << "Introduce una opcion valida :";
-	    cin >> opcion;
+		opcion = GetInt();
 	}
 	opcion--;
 	jugador.amIIn = elcasa._TuCasa[fila][columna]._conect[opcion]; //Cambia tu ubicacion
@@ -452,21 +487,29 @@ int main()
 	{
 		system("cls");
 		cout << "Estas en " << jugador.estoy->NOMBRE() << endl;
+
+		if (map) {
+			showMap(*casa, jugador);
+			cout << "\n" << endl;
+		}
 		if (jugador.estoy->solved) {
 			cout << "Presiona W para moverte" << endl;
 		}
-		if (jugador.estoy->solved && (jugador.estoy->_item.size() > 0 )) {
+		if (jugador.estoy->solved && (jugador.estoy->_item.size() > 0)) {
 			cout << "Presiona R para buscar en este lugar algo que tomar" << endl;
 		}
 		if (jugador.estuve->NOMBRE() != "Null")
 		{
 			cout << "Presiona V para volver al cuarto anterior" << endl;
 		}
-		cout << "Presiona U para usar item en esta habitacion\nPresiona S para salvar el juego\nPresiona M para mostrar el mapa\nPresiona Q para salir del juego" << endl;
-		
-		if (map) {
-			cout << "\n\n\n\n\n\n\n\n\n\n\n" << endl;
-			showMap(*casa, jugador);
+		cout << "Presiona U para usar item en esta habitacion\nPresiona S para salvar el juego\nPresiona Q para salir del juego" << endl;
+		if (!map)
+		{
+			cout << "Presiona M para mostrar el mapa" << endl;
+		}
+		if (map)
+		{
+			cout << "Presiona M para no mostrar el mapa" << endl;
 		}
 
 		cin >> partida;
@@ -478,11 +521,12 @@ int main()
 			if (map)
 			{
 				map = false;
+				break;
 			}
 			if (!map) {
 				map = true;
+				break;
 			}
-			break;
 		case 'w':
 		case 'W':
 			if (jugador.estoy->solved)
@@ -544,6 +588,8 @@ int main()
 		cout << "Felicidades has hecho." << endl;
 	}
 	delete casa;
+	delete jugador.estoy;
+	delete jugador.estuve;
 	cin.ignore();
 	cin.get();
 	return 0;

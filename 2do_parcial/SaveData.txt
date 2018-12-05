@@ -1,1 +1,1 @@
-NCocina BPasillo3 IBolsas_De_Mercado LJardin LPortico LRecibidor LSala_De_Estar LPasillo1 LPasillo2 LPasillo3 LCuarto_Principal LWC LCocina SJardin SPortico SRecibidor SSala_De_Estar SPasillo1 SPasillo2 SPasillo3 SCuarto_Principal ULlave UCaja URevistas UEscoba UEscoba_ UArete_Derecho UJuguete_Para_Perro
+NJardin B LJardin SJardin

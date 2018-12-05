@@ -1,36 +1,36 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (Aventura.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Aventura.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Source.cpp
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(11): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(27): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(30): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(48): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(76): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(79): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(108): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(129): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(155): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(157): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(162): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(177): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(179): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(204): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(208): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(212): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(216): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(232): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(240): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(248): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(256): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(264): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(272): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(287): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(302): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(324): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(330): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(369): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(371): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(402): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(404): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(428): warning C4018: '<': no coinciden signed/unsigned
-c:\users\oswal\source\repos\2do_parcial\2do_parcial\source.cpp(430): warning C4018: '<': no coinciden signed/unsigned
-  2do_parcial.vcxproj -> C:\Users\Oswal\source\repos\2do_parcial\Debug\2do_parcial.exe
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(49): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(64): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(67): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(85): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(112): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(115): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(144): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(165): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(191): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(193): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(198): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(212): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(214): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(239): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(243): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(247): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(251): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(267): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(275): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(283): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(291): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(299): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(307): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(322): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(337): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(359): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(365): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(404): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(406): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(437): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(439): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(463): warning C4018: '<': signed/unsigned mismatch
+c:\users\lab 4 alumno 7\source\repos\2do_parcial\2do_parcial\source.cpp(465): warning C4018: '<': signed/unsigned mismatch
+  2do_parcial.vcxproj -> C:\Users\Lab 4 Alumno 7\source\repos\2do_parcial\Debug\2do_parcial.exe
